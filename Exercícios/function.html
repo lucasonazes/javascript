@@ -6,6 +6,29 @@
         <title>Function</title>
     </head>
     <body>
-        
+
+
+        <script>
+            //NORMAL FUNCTION
+            function greetings(name) {
+                return `Good morning ${name}!`;
+            }
+            variable = greetings('Luiz');
+            console.log(variable);
+
+            //ARROW FUNCTION
+            soma = (x,y) => {
+                return x + y;
+            }
+            console.log(soma(5,2));
+            
+            //FUNCTION TO CREATE OBJECTS (FACTORY FUNCTION)
+            function createPerson (name, lastName, age) {
+                return {name, lastName, age};
+            }
+            const person1 = createPerson('Luiz','José',25);
+            console.log(person1);
+
+        </script>
     </body>
 </html>
