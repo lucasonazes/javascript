@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>IMC</title>
+        <link rel="stylesheet" href="./CSS/imc.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300&family=Poppins:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section class="container">
+            <h1>Calculate your BMI</h1>
+
+            <form action="/" id="form" method="POST">
+                <label for="weight">Type your weight</label>
+                <input type="text" id="weight" name="weight">
+
+                <label for="height">Type your height</label>
+                <input type="text" id="height" name="height">
+
+                <button type="submit">Send</button>
+            </form>
+
+            <div id="result"></div>
+        </section>
+
+
+        <script src="./JS/imc.js"></script>
+    </body>
+</html>

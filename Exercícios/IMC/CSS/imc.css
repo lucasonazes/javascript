@@ -1,0 +1,65 @@
+/*------------Default--------------*/
+
+:root {
+    --primary-color: rgb(4, 224, 253);
+    --primary-color-darker: rgb(12, 156, 175);
+}
+* {
+    box-sizing: border-box;
+    outline: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+}
+.container {
+    max-width: 870px;
+    margin: 50px auto;
+    padding-top: 10px;
+    background: #fffefe;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+/*-------Form-----------*/
+form input, form label {
+    display: block;
+    margin-bottom: 10px;
+}
+form label {
+    width: 100%;
+}
+form input {
+    width: 50%;
+    height: 50px;
+    margin: auto;
+    padding: 0 20px;
+    font-size: 24px;
+    border-radius: 5px;
+}
+form button {
+    border: none;
+    margin: 10px 0;
+    background: var(--primary-color);
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+form button:hover {
+    background: var(--primary-color-darker);
+}
+
+/*-----------Changes-----------*/
+
+.p-result {
+    background: rgb(118, 244, 118);
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
