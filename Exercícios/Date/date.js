@@ -1,6 +1,7 @@
 /* The hard way */
+/*
 const h1 = document.querySelector(".container h1");
-const date = new Date();
+const date1 = new Date();
 
 function getWeekDayString(weekDay) {
 const weekDayString = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -25,8 +26,8 @@ function createDate(date) {
     );
 }
 
-h1.innerHTML = createDate(date);
-
+h1.innerHTML = createDate(date1);
+*/
 
 /* The Easy way */
 const h1 = document.querySelector(".container h1");
