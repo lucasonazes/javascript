@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+
+:root {
+    --default-color: rgb(33, 33, 97);
+}
+
+body {
+    background: var(--default-color);
+}
+
+.container {
+    transform: translateY(100%);
+    width: 100vh;
+    padding: 50px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    display: flexbox;
+    flex-direction: column;
+    text-align: center;
+}
+
+a {
+    margin: 0 5% 0;
+}
+
+i {
+    font-size: 50px;
+    color: var(--default-color);
+}
