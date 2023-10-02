@@ -85,3 +85,12 @@ form button:hover {
 .btn:active {
     transform: scale(0.98);
 }
+
+.btn-eq {
+    background: rgb(0, 140, 255);
+    color: white;
+}
+
+.btn-eq:hover {
+    background: rgb(1, 81, 146);
+}
