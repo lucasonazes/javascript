@@ -78,10 +78,6 @@ form button:hover {
     background: #9e9e9e;
 }
 
-.eq {
-    
-}
-
 .btn:active {
     transform: scale(0.98);
 }
