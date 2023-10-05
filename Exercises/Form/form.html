@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Default</title>
+        <title>Form</title>
         <link rel="stylesheet" href="CSS/form.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,28 +12,33 @@
     </head>
     <body>
         <section class="container">
-            <h1>Random text</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus feugiat tempor diam, egestas suscipit arcu tempus non. Etiam a urna vitae risus euismod luctus. Fusce quis fermentum mauris, nec porta neque. Fusce finibus est mauris, eget gravida justo porttitor id. Curabitur non arcu turpis. Vivamus vel ex non metus cursus tincidunt at sit amet ligula.</p>
+            <h1>Form</h1>
 
-            <form action="">
-                <label for="input1">Label Test #1</label>
-                <input type="text" id="input1">
+            <form action="/" method="POST" class="form"> 
+                <label for="name">Name</label>
+                <input type="text" id="name" class="name valid">
 
-                <label for="input2">Label Test #2</label>
-                <input type="password" id="input2">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" class="last-name valid">
 
-                <label for="input3">Label Test #3</label>
-                <input type="email" id="input3">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" class="cpf valid">
 
-                <label for="input4">Label Test #4</label>
-                <input type="number" id="input4">
+                <label for="user">User</label>
+                <input type="text" id="user" class="user valid">
 
-                <button>Send</button>
+                <label for="password">Password</label>
+                <input type="password" id="password" class="password valid">
+
+                <label for="repeat-password">Repeat the password</label>
+                <input type="password" id="repeat-password" class="repeat-password valid">
+
+                <button type="submit">Send</button>
             </form>
-
         </section>
 
 
-        <script src="JS/form.js"></script>
+        <script src="../validCPF(UsingClass).js"></script>
+        <script src="./JS/form.js"></script>
     </body>
 </html>

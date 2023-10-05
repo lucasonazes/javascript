@@ -3,7 +3,8 @@
 }
 
 :root {
-    --default-color: rgb(5, 142, 255);
+    --default-color: rgb(179, 230, 230);
+    --darkest-color: rgb(21, 121, 121);
 }
 
 body {
@@ -28,5 +29,5 @@ a {
 
 i {
     font-size: 50px;
-    color: var(--default-color);
+    color: var(--darkest-color);
 }
