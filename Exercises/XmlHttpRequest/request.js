@@ -11,3 +11,28 @@ const request = obj => {
         }
     });
 }
+
+document.addEventListener('click', e => {
+    const e = e.target;
+    const tag = el.tagName.toLowerCase();
+
+    if(tag === a) {
+        e.preventDefault();
+        loadPage(el);
+    }
+})
+
+function loadPage(el) {
+    const href = el.getAttribute('href');
+
+    request({
+        method: 'GET',
+        url: href,
+        sucess(response) {
+
+        },
+        error() {
+            
+        }
+    })
+}
