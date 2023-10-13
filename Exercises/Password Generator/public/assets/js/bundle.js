@@ -2,6 +2,77 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/formGeneratePassword.js":
+/*!*********************************************!*\
+  !*** ./src/modules/formGeneratePassword.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _generators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generators */ "./src/modules/generators.js");
+
+var createdPasswordInput = document.querySelector('.generated-password');
+var charactersAmount = document.querySelector('.characters-amount');
+var chkUppercase = document.querySelector('.chk-uppercase');
+var chkLowercase = document.querySelector('.chk-lowercase');
+var chkNumber = document.querySelector('.chk-number');
+var chkSimbol = document.querySelector('.chk-simbol');
+var createdPassword = document.querySelector('.generate');
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
+  createdPassword.addEventListener('click', function () {
+    createdPasswordInput.innerHTML = generate();
+  });
+});
+function generate() {
+  var password = (0,_generators__WEBPACK_IMPORTED_MODULE_0__["default"])(charactersAmount.value, chkUppercase.checked, chkLowercase.checked, chkNumber.checked, chkSimbol.checked);
+  return password || 'Nothing Selected';
+}
+
+/***/ }),
+
+/***/ "./src/modules/generators.js":
+/*!***********************************!*\
+  !*** ./src/modules/generators.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ createPassword)
+/* harmony export */ });
+var rand = function rand(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+var createUppercase = function createUppercase() {
+  return String.fromCharCode(rand(65, 91));
+};
+var createLowercase = function createLowercase() {
+  return String.fromCharCode(rand(97, 123));
+};
+var createNumber = function createNumber() {
+  return String.fromCharCode(rand(48, 58));
+};
+var simbol = ',.;~^[]{}!@#$&*()_+-';
+var createSimbol = function createSimbol() {
+  return simbol[rand(0, simbol.length)];
+};
+function createPassword(amount, uppercase, lowercase, number, simbol) {
+  var passwordArray = [];
+  amount = Number(amount);
+  for (var i = 0; i < amount; i++) {
+    uppercase && passwordArray.push(createUppercase());
+    lowercase && passwordArray.push(createLowercase());
+    number && passwordArray.push(createNumber());
+    simbol && passwordArray.push(createSimbol());
+  }
+  return passwordArray.join('').slice(0, amount);
+}
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css":
 /*!************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/style.css ***!
@@ -45,36 +116,23 @@ body {
     font-size: 1.3em;
     line-height: 1.5em;
 }
+/*-------------------------------*/
+.generated-password {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin: 40px 0;
+}
 
-/*-------Form-----------*/
-form input, form label {
+input[type="checkbox"] {
+    width: 25px;
+    height: 15px;
+}
+
+button {
     display: block;
-    margin-bottom: 10px;
-}
-form label {
-    width: 100%;
-}
-form input {
-    width: 50%;
-    height: 50px;
-    margin: auto;
-    padding: 0 20px;
-    font-size: 24px;
-    border-radius: 5px;
-}
-form button {
-    border: none;
-    margin-top: 10px;
-    background: var(--primary-color);
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-}
-form button:hover {
-    background: var(--primary-color-darker);
-}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,yCAAyC;AAC7C;AACA;IACI,sBAAsB;IACtB,UAAU;IACV,kCAAkC;AACtC;AACA;IACI,SAAS;IACT,UAAU;IACV,gCAAgC;AACpC;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;IACb,mBAAmB;IACnB,mBAAmB;IACnB,kBAAkB;IAClB,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA,yBAAyB;AACzB;IACI,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,WAAW;AACf;AACA;IACI,UAAU;IACV,YAAY;IACZ,YAAY;IACZ,eAAe;IACf,eAAe;IACf,kBAAkB;AACtB;AACA;IACI,YAAY;IACZ,gBAAgB;IAChB,gCAAgC;IAChC,eAAe;IACf,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;AACnB;AACA;IACI,uCAAuC;AAC3C","sourcesContent":[":root {\r\n    --primary-color: rgb(5, 142, 255);\r\n    --primary-color-darker: rgb(10, 107, 187);\r\n}\r\n* {\r\n    box-sizing: border-box;\r\n    outline: 0;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    background: var(--primary-color);\r\n}\r\n.container {\r\n    max-width: 870px;\r\n    margin: 50px auto;\r\n    padding: 10px;\r\n    background: #fffefe;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n\r\n/*-------Form-----------*/\r\nform input, form label {\r\n    display: block;\r\n    margin-bottom: 10px;\r\n}\r\nform label {\r\n    width: 100%;\r\n}\r\nform input {\r\n    width: 50%;\r\n    height: 50px;\r\n    margin: auto;\r\n    padding: 0 20px;\r\n    font-size: 24px;\r\n    border-radius: 5px;\r\n}\r\nform button {\r\n    border: none;\r\n    margin-top: 10px;\r\n    background: var(--primary-color);\r\n    font-size: 20px;\r\n    color: white;\r\n    font-weight: bold;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n}\r\nform button:hover {\r\n    background: var(--primary-color-darker);\r\n}"],"sourceRoot":""}]);
+    margin: 40px auto;
+    font-size: 1em;
+}`, "",{"version":3,"sources":["webpack://./src/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,yCAAyC;AAC7C;AACA;IACI,sBAAsB;IACtB,UAAU;IACV,kCAAkC;AACtC;AACA;IACI,SAAS;IACT,UAAU;IACV,gCAAgC;AACpC;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,aAAa;IACb,mBAAmB;IACnB,mBAAmB;IACnB,kBAAkB;IAClB,gBAAgB;IAChB,kBAAkB;AACtB;AACA,kCAAkC;AAClC;IACI,cAAc;IACd,2BAA2B;IAC3B,cAAc;AAClB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,cAAc;IACd,iBAAiB;IACjB,cAAc;AAClB","sourcesContent":[":root {\r\n    --primary-color: rgb(5, 142, 255);\r\n    --primary-color-darker: rgb(10, 107, 187);\r\n}\r\n* {\r\n    box-sizing: border-box;\r\n    outline: 0;\r\n    font-family: 'Poppins', sans-serif;\r\n}\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n    background: var(--primary-color);\r\n}\r\n.container {\r\n    max-width: 870px;\r\n    margin: 50px auto;\r\n    padding: 10px;\r\n    background: #fffefe;\r\n    border-radius: 10px;\r\n    text-align: center;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n/*-------------------------------*/\r\n.generated-password {\r\n    font-size: 2em;\r\n    color: var(--primary-color);\r\n    margin: 40px 0;\r\n}\r\n\r\ninput[type=\"checkbox\"] {\r\n    width: 25px;\r\n    height: 15px;\r\n}\r\n\r\nbutton {\r\n    display: block;\r\n    margin: 40px auto;\r\n    font-size: 1em;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -601,8 +659,11 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
+/* harmony import */ var _modules_formGeneratePassword__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/formGeneratePassword */ "./src/modules/formGeneratePassword.js");
+/* harmony import */ var _assets_css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/style.css */ "./src/assets/css/style.css");
 
+
+(0,_modules_formGeneratePassword__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()
