@@ -52,15 +52,3 @@ form button {
 form button:hover {
     background: var(--primary-color-darker);
 }
-
-/*--------------------------------*/
-.container h1 {
-    margin-bottom: 40px;
-}
-
-.cpf-generated {
-    font-size: 2em;
-    color: green; 
-    margin-bottom: 30px;
-    letter-spacing: 2.5px;
-}
