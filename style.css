@@ -13,11 +13,11 @@ body {
 
 .container {
     transform: translateY(100%);
-    width: 100vh;
+    width: 80%;
     padding: 50px;
     margin: auto;
     background: white;
-    border-radius: 10px;
+    border-radius: 1em;
     display: flexbox;
     flex-direction: column;
     text-align: center;
@@ -28,6 +28,6 @@ a {
 }
 
 i {
-    font-size: 50px;
+    font-size: 3em;
     color: var(--darkest-color);
 }
