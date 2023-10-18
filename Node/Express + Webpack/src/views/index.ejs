@@ -1,34 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Index</title>
-    </head>
-    <body>
-        <section class="container">
-            <h1>Index</h1>
+<%- include('includes/head.ejs'); %>
+<section class="container">
+    <h1>Index</h1>
+    
+    <form action="">
+        <label for="input1">User</label>
+        <input type="text" id="input1">
 
-            <form action="">
-                <label for="input1">Label Test #1</label>
-                <input type="text" id="input1">
+        <label for="input2">Email</label>
+        <input type="email" id="input2">
 
-                <label for="input2">Label Test #2</label>
-                <input type="password" id="input2">
+        <label for="input3">Password</label>
+        <input type="password" id="input3">
 
-                <label for="input3">Label Test #3</label>
-                <input type="email" id="input3">
+        <label for="input4">Repeat the password</label>
+        <input type="password" id="input4">
 
-                <label for="input4">Label Test #4</label>
-                <input type="number" id="input4">
+        <button>Send</button>
+    </form>
 
-                <button>Send</button>
-            </form>
-
-        </section>
-
-
-        <script src="./assets/js/bundle.js"></script>
-    </body>
-</html>
+</section>
+<%- include('includes/footer.ejs'); %>
