@@ -1,18 +1,18 @@
-// DotEnv
+// DotEnv - So you don´t put users and passwords on repositories
 require('dotenv').config();
-
 // Express Framework
 const express = require('express');
 const app = express();
-
 // Conecting routes 
 const routes = require('./routes');
-
 // Setting the path to the directory
 const path = require('path');
-
-// Middlesware
-const { globalMiddleware } = require('./src/middlewares/middleware');
+// Helmet - Protection
+const helmet = require('helmet');
+// Csrf Tokens
+const csurf = require('csurf');
+// Middlewares
+const { globalMiddleware, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
 
 // Conecting to the Database
 const mongoose = require('mongoose');
@@ -27,9 +27,12 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
-// Manipulate req.body
+// To post forms into our aplication
 app.use(express.urlencoded({ extended: true }));
+// To post json into our aplication
+app.use(express.json());
 
+// Static files (images, css, javascript)
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 // Session settings
@@ -52,11 +55,17 @@ app.use(flash());
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
+// Csrf Error
+app.use(csurf());
 // My Middlewares
 app.use(globalMiddleware);
+app.use(checkCsrfError);
+app.use(csrfMiddleware);
 
 // Using routes
 app.use(routes);
+// Using helmet
+//app.use(helmet());
 
 // Conecting server port
 app.on('Ready!', () => {
@@ -64,4 +73,4 @@ app.on('Ready!', () => {
         console.log('Acess http://localhost:3000');
         console.log('Running server on port 3000');
     });
-}) 
+})

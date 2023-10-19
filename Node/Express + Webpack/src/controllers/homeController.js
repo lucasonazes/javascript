@@ -10,4 +10,3 @@ exports.post = (req, res) => {
     res.send(`Congratulations!`);
     return;
 };
-
