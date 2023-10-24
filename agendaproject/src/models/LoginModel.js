@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcryptjs = require=('bcryptjs');
+const bcryptjs = require('bcryptjs');
 
 const LoginSchema = new mongoose.Schema({
     email: { type: String, required: true },
@@ -16,6 +16,24 @@ class Login {
         this.user = null;
     }
 
+    async sigIn() {
+        this.valid();
+        if(this.errors.length > 0) return;
+
+        this.user = await LoginModel.findOne({ email: this.body.email });
+
+        if(!this.user) {
+            this.errors.push('User do not exists.');
+            return;
+        } 
+
+        if(!bcryptjs.compareSync(this.body.password, this.user.password)) {
+            this.errors.push('Incorrect password.');
+            this.user = null;
+            return;
+        }
+    }
+
     async register() {
         this.valid();
         if(this.errors.length > 0) return;
@@ -24,26 +42,26 @@ class Login {
 
         if(this.errors.length > 0) return;
         
-        try {
-            const salt = bcryptjs.genSaltSync();
-            this.body.password = bcryptjs.hashSync(this.body.password, salt);
-            this.user = await LoginModel.create(this.body);
-        } catch(e) {
-            console.log(e);
-        }
+        const salt = bcryptjs.genSaltSync();
+        this.body.password = bcryptjs.hashSync(this.body.password, salt);
+        this.user = await LoginModel.create(this.body);
     }
 
     valid() {
         this.cleanUp();
         // E-mail must be valid
-        if(!validator.isEmail(this.body.email)) this.errors.push('Invalid e-mail.');
+        if(!validator.isEmail(this.body.email)) {
+            this.errors.push('Invalid e-mail.');
+        }
         // Password must have between 3 and 50 characters
-        if(this.body.password.length < 3 || this.body.password.lenght > 50) this.errors.push('The password must have between 3 and 50 characters.');
+        if(this.body.password.length < 3 || this.body.password.length > 50) {
+            this.errors.push('The password must have between 3 and 50 characters.');
+        }
     }
 
     async userExists() {
-        const user = await LoginModel.findOne({ email: this.body.email });
-        if(user) this.errors.push('User already exists.');
+        this.user = await LoginModel.findOne({ email: this.body.email });
+        if(this.user) this.errors.push('User already exists.');
     }
 
     cleanUp() {
