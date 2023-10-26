@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { async } = require('regenerator-runtime');
 const validator = require('validator');
 
 const ContactSchema = new mongoose.Schema({
@@ -46,7 +45,7 @@ Contact.prototype.cleanUp = function() {
         phone: this.body.phone
     }
 }
-Contact.prototype.edit = async function(req, res) {
+Contact.prototype.edit = async function(id) {
     if(typeof id !== 'string') return;
     this.valid();
     if(this.errors.length > 0) return;
@@ -66,7 +65,7 @@ Contact.searchContacts = async function() {
     return contacts;
 }
 
-Contact.delete = async function(req, res) {
+Contact.delete = async function(id) {
     if(typeof id !== 'string') return;
     const contact = await ContactModel.findOneAndDelete({_id: id});
     return contact;

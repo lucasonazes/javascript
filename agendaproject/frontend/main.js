@@ -10,4 +10,4 @@ const login = new Login('.form-login');
 login.init();
 register.init();
 
-// import './assets/css/style.css';
+import './assets/css/style.css';

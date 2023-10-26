@@ -2,7 +2,7 @@
 <%- include('includes/nav') %>
     
 <div class="container">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-lg-2 my-5"></div>
 
         <div class="col-lg-8">
@@ -19,22 +19,22 @@
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <div class="form-group">
                   <label>Name</label>
-                  <input value="<%= contact.name %>" type="text" class="form-control" name="name">
+                  <input value="<%= contact.name %>" type="text" class="form-control my-2" name="name">
                 </div>
                 <div class="form-group">
                     <label>Last name</label>
-                    <input value="<%= contact.lastName %>" type="text" class="form-control" name="lastName">
+                    <input value="<%= contact.lastName %>" type="text" class="form-control my-2" name="lastName">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input value="<%= contact.email %>" type="email" class="form-control" name="email" placeholder="test@example.com">
+                    <input value="<%= contact.email %>" type="email" class="form-control my-2" name="email" placeholder="email@example.com">
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input value="<%= contact.phone %>" type="tel" class="form-control" name="phone" placeholder="+55 41 91122-3344">
+                    <input value="<%= contact.phone %>" type="tel" class="form-control my-2" name="phone" placeholder="+55 41 91122-3344">
                 </div>
                   
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary mt-2">Save</button>
             </form>
 
         </div>

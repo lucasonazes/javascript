@@ -1,10 +1,12 @@
 const Contact = require('../models/ContactModel');
 
 exports.index = (req, res) => {
-    res.render('contact');
+    res.render('contact', {
+        contact: {}
+    });
 }
 
-exports.register = async (req, res) => {
+exports.register = async(req, res) => {
     try {
         const contact = new Contact(req.body);
         await contact.register();
@@ -26,7 +28,6 @@ exports.register = async (req, res) => {
 
 exports.editIndex = async function(req, res) {
     if(!req.params.id) return res.render('404');
-    console.log(req.params.id);
 
     const contact = await Contact.searchForId(req.params.id);
     if(!contact) return res.render('404');
@@ -61,6 +62,6 @@ exports.delete = async function(req, res) {
     if(!contact) return res.render('404');
 
     req.flash('success', 'Contact deleted successfully!');
-    req.session.save(() => res.redirect(`/contact/index/${contact.contact._id}`));
+    req.session.save(() => res.redirect('back'));
     return;
 }
