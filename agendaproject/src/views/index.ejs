@@ -12,16 +12,26 @@
             <%- include('includes/messages') %>
 
             <% if(contacts.length > 0) { %>
-            <div class="responsive-table my-5">
-                <table class="table">
+            <div class="table-responsive-sm my-5">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
                     <% contacts.forEach(contact => { %>
                         <tr>
-                            <td><%= contact.name %></td>
+                            <td ><%= contact.name %></td>
                             <td><%= contact.lastName %></td>
                             <td><%= contact.phone %></td>
                             <td><%= contact.email %></td>
-                            <td><a href="/contact/index/<%= contact._id %>">Edit</a></td>
-                            <td><a class="text-danger" href="/contact/delete/<%= contact._id %>">Delete</a></td>
+                            <td><a class="link-underline-light" href="/contact/index/<%= contact._id %>">Edit</a></td>
+                            <td><a class="link-underline-light text-danger" href="/contact/delete/<%= contact._id %>">Delete</a></td>
                         </tr>
                     <% }); %>
                 </table>
