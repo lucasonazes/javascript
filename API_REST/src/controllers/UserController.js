@@ -46,8 +46,9 @@ class UserController {
         });
       }
 
-      const newData = await user.update(req.body);
-      return res.json(newData);
+      const newDate = await user.update(req.body);
+      const { id, name, email } = newDate;
+      return res.json({ id, name, email });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
@@ -67,7 +68,7 @@ class UserController {
       }
 
       await user.destroy();
-      return res.json(user);
+      return res.json(null);
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
