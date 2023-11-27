@@ -1,13 +1,13 @@
-import Student from '../models/Student';
-import Photo from '../models/Photo';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _Student = require('../models/Student'); var _Student2 = _interopRequireDefault(_Student);
+var _Photo = require('../models/Photo'); var _Photo2 = _interopRequireDefault(_Photo);
 
 class StudentController {
   async index(req, res) {
-    const students = await Student.findAll({
+    const students = await _Student2.default.findAll({
       attributes: ['id', 'name', 'lastName', 'email', 'age', 'weight', 'height'],
-      order: [['id', 'DESC'], [Photo, 'id', 'DESC']],
+      order: [['id', 'DESC'], [_Photo2.default, 'id', 'DESC']],
       include: {
-        model: Photo,
+        model: _Photo2.default,
         attributes: ['url', 'originalname', 'filename'],
       },
     });
@@ -16,7 +16,7 @@ class StudentController {
 
   async store(req, res) {
     try {
-      const student = await Student.create(req.body);
+      const student = await _Student2.default.create(req.body);
 
       return res.json(student);
     } catch (e) {
@@ -36,11 +36,11 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id, {
+      const student = await _Student2.default.findByPk(id, {
         attributes: ['id', 'name', 'lastName', 'email', 'age', 'weight', 'height'],
-        order: [['id', 'DESC'], [Photo, 'id', 'DESC']],
+        order: [['id', 'DESC'], [_Photo2.default, 'id', 'DESC']],
         include: {
-          model: Photo,
+          model: _Photo2.default,
           attributes: ['url', 'originalname', 'filename'],
         },
       });
@@ -69,7 +69,7 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id);
+      const student = await _Student2.default.findByPk(id);
 
       if (!student) {
         return res.status(400).json({
@@ -98,7 +98,7 @@ class StudentController {
         });
       }
 
-      const student = await Student.findByPk(id);
+      const student = await _Student2.default.findByPk(id);
 
       if (!student) {
         return res.status(400).json({
@@ -116,4 +116,4 @@ class StudentController {
   }
 }
 
-export default new StudentController();
+exports. default = new StudentController();
