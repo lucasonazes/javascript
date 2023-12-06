@@ -34,5 +34,9 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-a11y/control-has-associated-label': 0,
+    'import/no-extraneous-dependencies': 0,
+    'func-names': 0,
+    'no-console': 0,
+    'default-param-last': 0,
   },
 };
