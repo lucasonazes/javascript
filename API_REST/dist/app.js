@@ -16,7 +16,7 @@ var _studentRoutes = require('./routes/studentRoutes'); var _studentRoutes2 = _i
 var _photoRoutes = require('./routes/photoRoutes'); var _photoRoutes2 = _interopRequireDefault(_photoRoutes);
 
 const whiteList = [
-  'https://react2.lucasonazes.cloud',
+  'https://app.lucasonazes.cloud',
   'http://localhost:3000',
 ];
 

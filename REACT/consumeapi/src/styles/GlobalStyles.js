@@ -11,7 +11,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-size: sans-serif;
+    font-family: sans-serif;
     background: ${colors.primaryDarkColor};
     color: ${colors.primaryDarkColor};
   }
@@ -28,8 +28,12 @@ export default createGlobalStyle`
     padding: 10px 20px;
     border-radius: 4px;
     font-weight: 700;
+    transition: all 300ms;
   }
 
+  button:hover {
+    filter: brightness(90%);
+  }
   a {
     text-decoration: none;
     color: ${colors.primaryColor};

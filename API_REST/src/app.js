@@ -16,7 +16,7 @@ import studentRoutes from './routes/studentRoutes';
 import photoRoutes from './routes/photoRoutes';
 
 const whiteList = [
-  'https://react2.lucasonazes.cloud',
+  'https://app.lucasonazes.cloud',
   'http://localhost:3000',
 ];
 
