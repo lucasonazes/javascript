@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:frontend": "webpack -w",
+    "build:backend": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.11.16",
+    "@types/validator": "^13.11.9",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8.56.0",
@@ -23,6 +27,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@types/node": "^20.11.6"
+    "validator": "^13.11.0"
   }
 }
