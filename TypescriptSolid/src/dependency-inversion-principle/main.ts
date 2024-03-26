@@ -1,6 +1,8 @@
 /*
-Interface Segregation Principle
-Clients shouldn't be forced to rely on interfaces, classes or types they don't use.
+Dependency Inversion Principle
+High-level modules shouldn't rely on low-level modules. Both must depend on abstract modules.
+Rely on abstraction, not on implementation
+Abstractions shouldn't depend on details. Details must depend on abstractions.
 */
 
 import { ShoppingCart } from './classes/shopping-cart';
@@ -25,6 +27,7 @@ const persistency = new Persistency();
   '111.111.111-11',
 ); */
 const enterpriseCustomer = new EnterpriseCustomer('Lafort', '1111111111');
+
 const order = new Order(
   shoppingCart,
   messaging,

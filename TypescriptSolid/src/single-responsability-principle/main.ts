@@ -1,3 +1,8 @@
+/*
+Single responsability principle
+Each class or function does its own work.
+*/
+
 import { ShoppingCart } from './entities/shopping-cart';
 import { Order } from './entities/order';
 import { Messaging } from './services/messaging';

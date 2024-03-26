@@ -1,6 +1,6 @@
 /*
 Open/Closed Principle
-classes must be open to extensions, but closed to modifications.
+Classes must be open to extensions, but closed to modifications.
 */
 
 import { ShoppingCart } from './classes/shopping-cart';
