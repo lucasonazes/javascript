@@ -5,9 +5,9 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <PomodoroTimer
-        pomodoroTime={1500}
-        shortRestTime={300}
-        longRestTime={900}
+        pomodoroTime={5}
+        shortRestTime={3}
+        longRestTime={5}
         cycles={4}
       />
     </div>
